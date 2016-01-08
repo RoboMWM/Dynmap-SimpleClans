@@ -33,12 +33,6 @@ public class DynmapSimpleClansListener implements Listener
         }
     }
 
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event)
-    {
-        plugin.getPlayerManager().addEntry(event.getPlayer());
-    }
-
     @EventHandler(priority = EventPriority.LOW)
     public void onEntityDeath(EntityDeathEvent event)
     {
