@@ -163,14 +163,16 @@
             <artifactId>PreciousStones</artifactId>
             <version>9.4.0</version>
             <type>jar</type>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/PreciousStones.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.p000ison.dev.simpleclans2</groupId>
             <artifactId>SimpleClans2</artifactId>
             <version>1.0</version>
             <type>jar</type>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/SimpleClans.jar</systemPath>
         </dependency>
         <dependency> 
              <groupId>org.spigotmc</groupId> 
