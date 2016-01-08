@@ -32,45 +32,4 @@ public class DynmapSimpleClansListener implements Listener
             plugin.activate();
         }
     }
-
-    @EventHandler(priority = EventPriority.LOW)
-    public void onEntityDeath(EntityDeathEvent event)
-    {
-        if (event.getEntity() instanceof Player)
-        {
-            Player victim = (Player) event.getEntity();
-            Player attacker = null;
-
-            // find attacker
-
-            EntityDamageEvent lastDamageCause = victim.getLastDamageCause();
-
-            if (lastDamageCause instanceof EntityDamageByEntityEvent)
-            {
-                EntityDamageByEntityEvent entityEvent = (EntityDamageByEntityEvent) lastDamageCause;
-
-                if (entityEvent.getDamager() instanceof Player)
-                {
-                    attacker = (Player) entityEvent.getDamager();
-                }
-                else if (entityEvent.getDamager() instanceof Arrow)
-                {
-                    Arrow arrow = (Arrow) entityEvent.getDamager();
-
-                    if (arrow.getShooter() instanceof Player)
-                    {
-                        attacker = (Player) arrow.getShooter();
-                    }
-                }
-            }
-
-            if (attacker != null)
-            {
-                ClanPlayer acp = plugin.getClaPlayernManager().getCreateClanPlayerExact(attacker);
-                ClanPlayer vcp = plugin.getClaPlayernManager().getCreateClanPlayerExact(victim);
-
-                DynmapSimpleClans.getInstance().getKills().addKillEntry(new KillEntry(vcp, acp, victim.getLocation()));
-            }
-        }
-    }
 }
